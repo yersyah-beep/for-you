@@ -1,0 +1,394 @@
+
+/* =========================
+   GLOBAL
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    color: #76515d;
+
+    background:
+        radial-gradient(circle at top left, #fff4f6, transparent 40%),
+        linear-gradient(135deg, #fff8f8, #fce4ec, #fff0f3);
+
+    overflow-x: hidden;
+}
+
+
+/* =========================
+   MAIN CONTAINER
+========================= */
+
+.container {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 25px;
+}
+
+
+/* =========================
+   INTRO SECTION
+========================= */
+
+.intro {
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+
+    animation: fadeIn 1.5s ease;
+}
+
+.flower-icon {
+    font-size: 65px;
+    margin-bottom: 20px;
+
+    animation: floating 3s ease-in-out infinite;
+}
+
+.small-text {
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: #bb8295;
+    margin-bottom: 15px;
+}
+
+.intro h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(35px, 8vw, 55px);
+    font-style: italic;
+    font-weight: 400;
+
+    color: #a85f77;
+    margin-bottom: 20px;
+}
+
+.intro-description {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 2;
+
+    margin-bottom: 30px;
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+.open-button,
+.music-button {
+    border: none;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+
+    transition: all 0.3s ease;
+}
+
+.open-button {
+    background: linear-gradient(135deg, #dfa6b7, #c7839b);
+
+    color: white;
+    font-size: 13px;
+
+    padding: 15px 32px;
+    border-radius: 50px;
+
+    box-shadow: 0 8px 25px #d99aaf55;
+}
+
+.open-button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px #d99aaf77;
+}
+
+
+/* =========================
+   MESSAGE SECTION
+========================= */
+
+.message {
+    display: none;
+
+    max-width: 520px;
+    width: 100%;
+
+    text-align: center;
+
+    background: #ffffffc9;
+    backdrop-filter: blur(15px);
+
+    border: 1px solid #ffffff;
+    border-radius: 28px;
+
+    padding: 40px 30px;
+
+    box-shadow: 0 15px 50px #b77b8c20;
+}
+
+.message.show {
+    display: block;
+    animation: appear 1.5s ease;
+}
+
+.message-flower {
+    font-size: 45px;
+    margin-bottom: 15px;
+}
+
+.message h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
+    font-weight: 400;
+    font-style: italic;
+
+    color: #b66e87;
+
+    margin-bottom: 15px;
+}
+
+.divider {
+    width: 60px;
+    height: 2px;
+
+    background: #dfa6b7;
+
+    margin: 0 auto 25px;
+}
+
+
+/* =========================
+   TYPING TEXT
+========================= */
+
+#typing {
+    font-size: 13px;
+    font-weight: 300;
+
+    line-height: 2.1;
+    white-space: pre-line;
+
+    color: #76515d;
+    text-align: center;
+
+    min-height: 100px;
+}
+
+
+/* =========================
+   CLOSING
+========================= */
+
+.closing {
+    display: none;
+    margin-top: 30px;
+}
+
+.closing.show {
+    display: block;
+    animation: appear 2s ease;
+}
+
+.closing-flower {
+    font-size: 55px;
+    margin-bottom: 15px;
+
+    animation: floating 3s ease-in-out infinite;
+}
+
+.closing p {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 20px;
+    line-height: 1.8;
+
+    color: #a85f77;
+}
+
+.closing span {
+    display: block;
+    margin-top: 20px;
+
+    font-size: 12px;
+    color: #bb8295;
+}
+
+
+/* =========================
+   MUSIC BUTTON
+========================= */
+
+.music-button {
+    margin-top: 30px;
+
+    padding: 10px 20px;
+
+    border-radius: 50px;
+    border: 1px solid #dfa6b7;
+
+    background: transparent;
+    color: #a85f77;
+
+    font-size: 11px;
+}
+
+.music-button:hover {
+    background: #fce4ec;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer-text {
+    margin-top: 35px;
+
+    font-size: 10px;
+    letter-spacing: 2px;
+
+    color: #bb8295;
+}
+
+
+/* =========================
+   FLOWER ANIMATION
+========================= */
+
+.flower-petal {
+    position: fixed;
+    top: -50px;
+
+    pointer-events: none;
+    z-index: 10;
+
+    animation: falling linear forwards;
+}
+
+@keyframes falling {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(110vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+
+/* =========================
+   HEART ANIMATION
+========================= */
+
+.floating-heart {
+    position: fixed;
+    bottom: -40px;
+
+    pointer-events: none;
+    z-index: 5;
+
+    color: #d99aaf;
+
+    animation: floatUp linear forwards;
+}
+
+@keyframes floatUp {
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+
+/* =========================
+   GENERAL ANIMATIONS
+========================= */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes floating {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 480px) {
+
+    .container {
+        padding: 18px;
+    }
+
+    .message {
+        padding: 35px 22px;
+    }
+
+    .message h2 {
+        font-size: 32px;
+    }
+
+    #typing {
+        font-size: 12px;
+        line-height: 2;
+    }
+
+    .closing p {
+        font-size: 18px;
+    }
+
+}
+
+
+/* =========================
+   ACCESSIBILITY
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+    }
+}
